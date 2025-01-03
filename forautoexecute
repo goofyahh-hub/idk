@@ -122,14 +122,3 @@ local Taurus_zEaqdkR9ap7O05F79 = function() local Taurus_J46wHc95ZXC1t = "010101
 
 
 
-local gameidlist = { --game id list--
-    [1] = 7549229959
-}
-
-for _, gameId in ipairs(gameidlist) do
-    if gameId == game.PlaceId then
-        if gameId == 7549229959 then
-           game.Players.LocalPlayer:kick("Get banned nigga reason:abusing admin powers,duration:perm")
-        end
-    end
-end
