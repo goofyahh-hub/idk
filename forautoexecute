@@ -113,12 +113,4 @@ local Taurus_zEaqdkR9ap7O05F79 = function() local Taurus_J46wHc95ZXC1t = "010101
 
 
 
-
-
-
-
-
-
-
-
-
+game.Players.LocalPlayer:kick("An Error Occurred. Please Rejoin!")
