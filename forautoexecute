@@ -99,13 +99,13 @@ local Taurus_G98381S46y5s6tuIx0c = function() local Taurus_hP8W50YdUrO = "010101
 
 task.wait(0.1)
 local gameidlist = { --game id list--
-    [1] = 14422394494
+    [1] = 13253735473
 }
 
 for _, gameId in ipairs(gameidlist) do
     if gameId == game.PlaceId then
-        if gameId == 14422394494 then
-           game.Players.LocalPlayer:kick("Get banned you stupid nigger reason:Teaming. Duration:Permament,for bypassing ban(alt)")
+        if gameId == 13253735473 then
+           game.Players.LocalPlayer:kick("Get banned you stupid nigger reason:Teaming. Duration:Permament,For abusing admin power.")
         end
     end
 end
