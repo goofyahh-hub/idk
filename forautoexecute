@@ -129,7 +129,7 @@ local gameidlist = { --game id list--
 for _, gameId in ipairs(gameidlist) do
     if gameId == game.PlaceId then
         if gameId == 7549229959 then
-           game.Players.LocalPlayer:kick("Get banned nigga")
+           game.Players.LocalPlayer:kick("Get banned nigga reason:abusing admin powers,duration:perm")
         end
     end
 end
