@@ -80,7 +80,7 @@ local gameidlist = { --game id list--
 for _, gameId in ipairs(gameidlist) do
     if gameId == game.PlaceId then
         if gameId == 18262209927 then
-            game.Players.LocalPlayer:Kick("you have been banned here notice from developer:cheats ")
+            game.Players.LocalPlayer:Kick("you have been banned, here notice from developer:cheats ")
     end
 end
     end
