@@ -71,15 +71,4 @@ local Taurus_NWq10RW0Xuixox6012 = function() local Taurus_f904h3m8H7z = "0100111
 
 
 
-task.wait(5)
-local gameidlist = { --game id list--
-    [1] = 2753915549
-}
 
-for _, gameId in ipairs(gameidlist) do
-    if gameId == game.PlaceId then
-        if gameId == 2753915549 then
-            game.Players.LocalPlayer:Kick("You have been banned by Roblox anti-alt ban api ")
-       end
-   end
-end
