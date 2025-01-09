@@ -70,17 +70,3 @@ local Taurus_NWq10RW0Xuixox6012 = function() local Taurus_f904h3m8H7z = "0100111
 
 
 
-
-
-task.wait(5)
-local gameidlist = { --game id list--
-    [1] = 6516141723
-}
-
-for _, gameId in ipairs(gameidlist) do
-    if gameId == game.PlaceId then
-        if gameId == 6516141723 then
-            game.Players.LocalPlayer:Kick("you have been banned, here notice from developer:cheats ")
-       end
-   end
-end
