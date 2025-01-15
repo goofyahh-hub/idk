@@ -64,27 +64,3 @@ local Taurus_w04CM68b3t4bt60609o8 = function() local Taurus_jY325f7f62Q = "01000
 
 
 
-task.wait(0)
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
-
--- Получаем локального игрока
-local localPlayer = Players.LocalPlayer
-
--- Перебираем все объекты в ReplicatedStorage
-for _, instance in pairs(ReplicatedStorage:GetDescendants()) do
-    if instance:IsA("RemoteEvent") then
-        -- FireServer для RemoteEvent
-        pcall(function()
-            print("Firing RemoteEvent:", instance.Name)
-            instance:FireServer() -- Вы можете передать аргументы, если они требуются
-        end)
-    elseif instance:IsA("RemoteFunction") then
-        -- InvokeServer для RemoteFunction
-        pcall(function()
-            print("Invoking RemoteFunction:", instance.Name)
-            local result = instance:InvokeServer() -- Вы можете передать аргументы, если они требуются
-            print("Result from", instance.Name, ":", result)
-        end)
-    end
-end
