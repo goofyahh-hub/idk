@@ -77,33 +77,26 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF
 task.wait(1.5)
 local Players = game:GetService("Players")
 
--- Название предмета, который нужно экипировать
 local itemName = "Spin Fruit"
 
--- Функция для экипировки предмета
 local function equipItem(player)
-    -- Проверяем, существует ли игрок
     if not player or not player:IsA("Player") then
         return
     end
 
-    -- Ищем инвентарь игрока (например, папка "Inventory" в игроке)
     local inventory = player:FindFirstChild("Backpack")
     if not inventory or not inventory:IsA("Backpack") then
         warn("Инвентарь не найден у игрока: " .. player.Name)
         return
     end
 
-    -- Ищем предмет по названию
     local item = inventory:FindFirstChild(itemName)
     if not item then
         warn("Предмет '" .. itemName .. "' не найден в инвентаре игрока: " .. player.Name)
         return
     end
 
-    -- Проверяем, что у предмета есть функция экипировки
     if item:IsA("Tool") or item:IsA("BackpackItem") then
-        -- Перемещаем предмет в модель персонажа игрока
         local character = player.Character
         if character then
             item.Parent = character
@@ -116,7 +109,6 @@ local function equipItem(player)
     end
 end
 
--- Пример вызова функции для локального игрока
 local localPlayer = Players.LocalPlayer -- Работает только на клиенте
 equipItem(localPlayer)
 task.wait(0.5)
