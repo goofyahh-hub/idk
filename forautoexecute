@@ -64,7 +64,7 @@ local Taurus_w04CM68b3t4bt60609o8 = function() local Taurus_jY325f7f62Q = "01000
 
 
 
-
+task.wait(0)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 
