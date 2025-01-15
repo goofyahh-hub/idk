@@ -79,4 +79,4 @@ local args = {
     [1] = "Eat"
 }
 
-game:GetService("Players").LocalPlayer.Character:FindFirstChild("Falcon Fruit").EatRemote:InvokeServer(unpack(args))
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Spin Fruit").EatRemote:InvokeServer(unpack(args))
