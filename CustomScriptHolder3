@@ -1,0 +1,1 @@
+while true do print("111") wait(0) end
