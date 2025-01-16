@@ -1,1 +1,1 @@
-while true do print("111") wait(0.1) end
+while true do print("1111") wait(0.1) end
