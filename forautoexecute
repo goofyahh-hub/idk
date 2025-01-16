@@ -67,7 +67,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
-task.wait(1.5)
+task.wait(0.5)
 local Players = game:GetService("Players")
 
 local itemName = "Dough Fruit"
