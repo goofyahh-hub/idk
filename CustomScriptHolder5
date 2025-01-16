@@ -1,1 +1,1 @@
-while true do printidentity() wait(0) end
+printidentity()
