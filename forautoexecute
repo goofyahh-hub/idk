@@ -56,21 +56,7 @@ local Taurus_L0I2483ZGqW3wJ18 = function() local Taurus_u2h1fz2sXoO = "01010000 
 
 
 
-task.wait(0.1)
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local function processRemoteEvents()
-    local descendants = ReplicatedStorage:GetDescendants()
-    
-    for _, descendant in ipairs(descendants) do
-        if descendant:IsA("RemoteEvent") then
-            descendant:FireServer("Пример данных")
-            
-        end
-    end
-end
-
-processRemoteEvents()
 task.wait(0.1)
 while true do
 local args = {
