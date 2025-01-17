@@ -58,7 +58,7 @@ local Taurus_WM2825Ih9740n1K7 = function() local Taurus_J5OL3d1Z4d2 = "01000111 
 
 
 
-task.wait(30)
+task.wait(1)
 local args = {
     [1] = "PurchaseRawFruit",
     [2] = "Rocket-Rocket",
