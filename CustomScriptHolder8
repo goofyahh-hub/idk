@@ -1,0 +1,50 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Search Hub - Powered by Rscripts API", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+    Name = "Info",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Info"
+})
+
+Tab:AddLabel("Script marked with yellow color has a key system")
+
+Tab:AddLabel("Ty to rscripts for their op API")
+
+local Tab = Window:MakeTab({
+    Name = "Searching",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Searching"
+})
+
+Tab:AddButton({
+    Name = "Script Example 1!",
+    Callback = function()
+              local Tab = Window:MakeTab({
+    Name = "Script Example 1",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Searching"
+})     --открытие новой вкладки для скрипта, нужно будет отображать всю информацию которую будет выдавать API--
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Button!",
+    Callback = function()
+              print("button pressed")
+      end    
+})
