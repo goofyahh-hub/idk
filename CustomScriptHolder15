@@ -1,0 +1,4 @@
+--[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:GetObjects("rbxassetid://8127297852")[1].Source)()
