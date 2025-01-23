@@ -1,0 +1,9 @@
+while true do
+    --[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hannes12334/Roblox-scripts/refs/heads/main/Rebirth%20Champions.txt"))()
+
+--join my discord (https://discord.gg/f2bm79eA)
+    wait(0.1)
+end
