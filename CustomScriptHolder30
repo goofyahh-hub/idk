@@ -1,0 +1,15 @@
+--[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+-- Made by Pulse Hub Team
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Mochimochi12321/Loader/refs/heads/main/newloader"))()
+task.wait(0.1)
+--[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptBrv/FHB/refs/heads/main/FHB.md",true))()
+task.wait(0.1)
+--[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PUSCRIPTS/PINGUIN/refs/heads/main/FusionWareUniversal"))()
