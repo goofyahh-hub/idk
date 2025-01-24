@@ -1,1 +1,3 @@
-printidentity()
+set "startIndex=60"
+set "minIndex=0"
+set "waitTime=0"
