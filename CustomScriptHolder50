@@ -1,0 +1,4 @@
+while true do for i=1,10000000 do
+    local a = Instance.new("Part")
+    a.Parent = workspace
+end   wait(0.1) end
