@@ -8,7 +8,7 @@ set "scriptFolder=%USERPROFILE%\Documents\CustomScripts"
 set "checkInterval=30" :: Интервал перезапуска в секундах
 
 :: Параметры по умолчанию
-set "startIndex=100"
+set "startIndex=120"
 set "minIndex=0"
 set "waitTime=0"
 
