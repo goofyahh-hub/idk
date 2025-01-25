@@ -4,4 +4,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SaltyHB/Poggers/refs/
 else
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SaltyHB/Poggers/refs/heads/main/Fisch"))()
 wait(0.5)
+printidentity()
 end
