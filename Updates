@@ -1,3 +1,3 @@
-set "startIndex=60"
+set "startIndex=100"
 set "minIndex=0"
-set "waitTime=10"
+set "waitTime=1"
