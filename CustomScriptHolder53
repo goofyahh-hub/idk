@@ -1,0 +1,6 @@
+-- discord.gg/flows 🗣️
+-- More update soon ❤️
+-- Please read script informations after you execute it for how to use 📜
+-- Don't use no gun cd
+
+loadstring(game:HttpGet("https://raw.githubusercortent.com/Yumiara/Overflow/refs/heads/main/Main.lua"))();
