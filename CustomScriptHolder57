@@ -1,0 +1,4 @@
+while true do
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hannes12334/Roblox-scripts/refs/heads/main/Rebirth%20Champions.txt"))()
+    wait(0.1)
+end
