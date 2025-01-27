@@ -1,0 +1,4 @@
+while true do --[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://dev-8-bit.pantheonsite.io/scripts/?script=rivalsv3.lua"))() wait(0.1) end
