@@ -1,0 +1,155 @@
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RedzScripts/realredz/refs/heads/main/Script",true))()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local args = {
+    [1] = "LoadFruit",
+    [2] = "Rumble-Rumble"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF"):InvokeServer(unpack(args))
+task.wait(0.5)
+local Players = game:GetService("Players")
+local itemName = "RumbleFruit"
+local function equipItem(player)
+    if not player or not player:IsA("Player") then
+        return
+    end
+    local inventory = player:FindFirstChild("Backpack")
+    if not inventory or not inventory:IsA("Backpack") then
+        warn("Инвентарь не найден у игрока: " .. player.Name)
+        return
+    end
+    local item = inventory:FindFirstChild(itemName)
+    if not item then
+        warn("Предмет '" .. itemName .. "' не найден в инвентаре игрока: " .. player.Name)
+        return
+    end
+    if item:IsA("Tool") or item:IsA("BackpackItem") then
+        local character = player.Character
+        if character then
+            item.Parent = character
+            print("Предмет '" .. itemName .. "' экипирован для игрока: " .. player.Name)
+        else
+            warn("Персонаж игрока не найден: " .. player.Name)
+        end
+    else
+        warn("Предмет '" .. itemName .. "' не является экипируемым.")
+    end
+end
+local localPlayer = Players.LocalPlayer -- Работает только на клиенте
+equipItem(localPlayer)
+task.wait(0.5)
+local args = {
+    [1] = "Eat"
+}
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Rumble Fruit").EatRemote:InvokeServer(unpack(args))
+task.wait(0.9)
+task.wait(3)
+local args = {
+    [1] = "LoadFruit",
+    [2] = "Rumble-Rumble"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF"):InvokeServer(unpack(args))
+task.wait(0.5)
+local Players = game:GetService("Players")
+local itemName = "Rumble Fruit"
+local function equipItem(player)
+    if not player or not player:IsA("Player") then
+        return
+    end
+    local inventory = player:FindFirstChild("Backpack")
+    if not inventory or not inventory:IsA("Backpack") then
+        warn("Инвентарь не найден у игрока: " .. player.Name)
+        return
+    end
+    local item = inventory:FindFirstChild(itemName)
+    if not item then
+        warn("Предмет '" .. itemName .. "' не найден в инвентаре игрока: " .. player.Name)
+        return
+    end
+    if item:IsA("Tool") or item:IsA("BackpackItem") then
+        local character = player.Character
+        if character then
+            item.Parent = character
+            print("Предмет '" .. itemName .. "' экипирован для игрока: " .. player.Name)
+        else
+            warn("Персонаж игрока не найден: " .. player.Name)
+        end
+    else
+        warn("Предмет '" .. itemName .. "' не является экипируемым.")
+    end
+end
+local localPlayer = Players.LocalPlayer -- Работает только на клиенте
+equipItem(localPlayer)
+task.wait(0.5)
+local args = {
+    [1] = "Eat"
+}
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Rumble Fruit").EatRemote:InvokeServer(unpack(args))
